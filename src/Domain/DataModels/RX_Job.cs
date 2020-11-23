@@ -7,8 +7,7 @@ namespace Domain.DataModels
 	public class RX_Job
 	{
 		public Guid Id { get; set; }
-		public int? ContractorID { get; set; }
-		
+		public int? ContractorID { get; set; }		
 		public string Name { get; set; } 
 		public  string Status { get; set; } 
 		public int? Floor { get; set; }
