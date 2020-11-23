@@ -14,7 +14,7 @@ namespace DataLayer
         {
             //Database.EnsureDeleted();
             Database.EnsureCreated();
-            //(this.GetService<IDatabaseCreator>() as RelationalDatabaseCreator).Exists()
+            /*(context.GetService<IDatabaseCreator>() as RelationalDatabaseCreator).Exists()
 
 
             if (!await RXContext.RXRoomTypes.AnyAsync<RX_RoomType>())
@@ -25,7 +25,7 @@ namespace DataLayer
             if (!await RXContext.RXJobs.AnyAsync<RX_Job>())
             {
                 await RXContext.RXJobs.ExecuteSqlRawAsync(InitialScript.InsertJobInitScript());
-            }
+            }*/
 
         }
 
@@ -38,6 +38,12 @@ namespace DataLayer
             modelBuilder.Entity<RX_Job>(RX_JobConfiguration.JobConfiguration);
         }
 
-        public bool Exists
+        public bool Exists()
+        {
+            if (!Database.CanConnect())
+            {
+                
+            }
+        }
     }
 }
