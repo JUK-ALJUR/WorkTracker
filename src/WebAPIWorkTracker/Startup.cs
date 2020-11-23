@@ -11,7 +11,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Services;
+using WebAPIWorkTracker.AutoMapper;
 
 namespace WebAPIWorkTracker
 {
@@ -34,6 +36,9 @@ namespace WebAPIWorkTracker
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIWorkTracker", Version = "v1" });
             });
             services.AddServiceLayer();
+
+            services.AddAutoMapper(typeof(JobProfile).Assembly);
+            services.AddAutoMapper(typeof(RoomTypeProfile).Assembly);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
