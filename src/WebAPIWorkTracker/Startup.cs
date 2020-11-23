@@ -15,6 +15,7 @@ using AutoMapper;
 using DataLayer;
 using Services;
 using WebAPIWorkTracker.AutoMapper;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebAPIWorkTracker
 {
@@ -32,6 +33,10 @@ namespace WebAPIWorkTracker
         {
 
             services.AddControllers();
+            services.AddDbContext<DataLayer.RXContext>(options =>
+            {
+                options.UseSqlServer(Configuration.GetSection("ConnectionStrings:Default").Value);
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebAPIWorkTracker", Version = "v1" });
