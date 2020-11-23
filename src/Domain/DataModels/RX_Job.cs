@@ -19,6 +19,5 @@ namespace Domain.DataModels
 		public int? StatusNum { get; set; }
 		public int? RJobID { get; set; }
 		public RX_RoomType Rx_RoomType { get; set; }
-		public Guid? RoomTypeId { get; set; }
     }
 }
