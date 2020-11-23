@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using Core.Abstractions.Repositories;
 using Core.Abstractions.Services;
+using Domain.DataModels;
 using Domain.Queries;
 using Domain.ViewModels;
 
