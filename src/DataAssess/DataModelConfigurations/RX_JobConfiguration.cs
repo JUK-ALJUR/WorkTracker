@@ -15,10 +15,7 @@ namespace Domain.DataModelConfigurations
             builder.Property(j => j.Name).HasMaxLength(50);
             builder.Property(j => j.Status).HasMaxLength(50);
             builder.Property(j => j.DelayReason).HasMaxLength(50);
-            //builder.HasOne(j => j.Rx_RoomType).
-
-
-
+            builder.HasOne(j => j.Rx_RoomType).WithMany();
         }
     }
 }

@@ -7,7 +7,7 @@ namespace Domain.DataModels
     public class RX_RoomType
     {
         public Guid Id { get; set; }
-        public string Name { get; set; } // max 28 reqired
-        public string Description { get; set; } //255
+        public string Name { get; set; } 
+        public string Description { get; set; } 
     }
 }

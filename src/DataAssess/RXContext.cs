@@ -1,4 +1,5 @@
-﻿using Domain.DataModels;
+﻿using Domain.DataModelConfigurations;
+using Domain.DataModels;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -19,13 +20,14 @@ namespace DataLayer
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder
-                .Entity<RX_Job>(entity => {
-                    entity.HasKey(k => k.Id);
-                    //entity.Map
-                })
-                .Entity<RX_RoomType>();
+            modelBuilder.Entity<RX_Job>(RX_JobConfiguration.JobConfiguration);
+            modelBuilder.Entity<RX_RoomType>(Rx_RoomTypeConfiguration.RoomTypeConfiguration);
         }
+
+        /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=mobileappdb;Trusted_Connection=True;");
+        }*/
 
 
     }
