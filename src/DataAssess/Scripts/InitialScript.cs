@@ -6,7 +6,7 @@ namespace DataLayer.Scripts
 {
     public class InitialScript
     {
-		public string CreateRX_JobInitScript()
+		public static string CreateRX_JobInitScript()
 		{
 			return @"
 					SET ANSI_NULLS ON
@@ -36,7 +36,7 @@ namespace DataLayer.Scripts
 			";
 		}
 
-		public string CreateRX_RoomTypeInitScript()
+		public static string CreateRX_RoomTypeInitScript()
 		{
 			return @"
 					SET ANSI_NULLS ON
@@ -57,7 +57,7 @@ namespace DataLayer.Scripts
 		}
 
 
-		public string GetJobInitScript()
+		public static string InsertJobInitScript()
         {
             return @"
 				INSERT [dbo].[RX_Job] ([Id], [ContractorID], [Name], [Status], [Floor], [Room], [DelayReason], [DateCreated], [DateCompleted], [DateDelayed], [StatusNum], [RJobID], [RoomTypeId]) VALUES (newid(),NULL, N'Job1_0_0', N'In Progress', 1, 0, NULL, CAST(N'2017-05-08T13:09:38.900' AS DateTime), NULL, NULL, 3, NULL, N'02a5381a-65ab-40c5-a99e-5c591290a901')
@@ -1597,7 +1597,7 @@ namespace DataLayer.Scripts
             ";        
         }
 
-		public string GetRoomTypeInitScript()
+		public static string InsertRoomTypeInitScript()
 		{
 			return @"
 				INSERT [dbo].[RX_RoomType] ([Id], [Name], [Description]) VALUES (N'a7283ef0-4600-41e9-9ee0-03144be29ec0', N'QQ', N'Common Area')

@@ -34,7 +34,7 @@ namespace WebAPIWorkTracker
 
             services.AddControllers();
             services.AddDbContext<DataLayer.RXContext>(options =>
-            {
+            {                
                 options.UseSqlServer(Configuration.GetSection("ConnectionStrings:Default").Value);
             });
             services.AddSwaggerGen(c =>
@@ -46,6 +46,8 @@ namespace WebAPIWorkTracker
 
             services.AddAutoMapper(typeof(JobProfile).Assembly);
             services.AddAutoMapper(typeof(RoomTypeProfile).Assembly);
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
