@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.Abstractions.Services
 {
-    public interface IRX_JobService
+    public interface IJobService
     {
         Task<GetAllRXJobsQueryResult> GetAllRXJobsQueryHandler();
     }
