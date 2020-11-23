@@ -1,48 +1,27 @@
-﻿using Core.Abstractions.Repositories;
-using Domain.DataModels;
+﻿using Domain.DataModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Core.Abstractions.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer.Repositories
 {
-    public class RX_JobRepository : BaseRepository<Guid, RX_Job, RX_JobRepository>, IRX_JobRepository
+    public class RX_JobRepository: BaseRepository<Guid, RX_Job, RX_JobRepository>, IRX_JobRepository
     {
-        public Task<RX_Job> ByIdAsync(int id, CancellationToken cancellationToken = default)
+        public RX_JobRepository(RXContext context) : base(context)
+        { }
+
+        IRX_JobRepository IBaseRepository<Guid, RX_Job, IRX_JobRepository>.NoTrack()
         {
-            throw new NotImplementedException();
+            return base.NoTrack();
         }
 
-        public Task<int> DeleteBulkAsync(IEnumerable<int> ids, CancellationToken cancellationToken = default)
+        IRX_JobRepository IBaseRepository<Guid, RX_Job, IRX_JobRepository>.Reset()
         {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> DeleteRecordAsync(int id, CancellationToken cancellationToken = default)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<bool> ExistsAsync(int id, CancellationToken cancellationToken = default)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<int> PatchRecordAsync(int id, string data, CancellationToken cancellationToken = default)
-        {
-            throw new NotImplementedException();
-        }
-
-        IRX_JobRepository IBaseRepository<int, RX_Job, IRX_JobRepository>.NoTrack()
-        {
-            throw new NotImplementedException();
-        }
-
-        IRX_JobRepository IBaseRepository<int, RX_Job, IRX_JobRepository>.Reset()
-        {
-            throw new NotImplementedException();
+            return base.Reset();
         }
     }
 }
